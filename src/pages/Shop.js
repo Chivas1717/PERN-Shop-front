@@ -1,12 +1,11 @@
 import React, {useContext, useEffect} from 'react';
-// import TypeBar from "../components/TypeBar";
-// import BrandBar from "../components/BrandBar";
-// import DeviceList from "../components/DeviceList";
 // import Pages from "../components/Pages";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {fetchBrands, fetchDevices, fetchTypes} from "../http/deviceAPI";
 import TypeBar from "../components/TypeBar";
+import BrandBar from "../components/BrandBar";
+import DeviceList from "../components/DeviceList";
 
 
 const Shop = observer(() => {
@@ -32,12 +31,12 @@ const Shop = observer(() => {
     }, [device.page, device.selectedType, device.selectedBrand,])
 
     return (
-        <div className="my-12 grid grid-cols-4 gap-0.5">
+        <div className="my-12 mx-12 grid grid-cols-4 grid-rows-3 gap-0.5">
             <TypeBar />
-            <div className="border rounded-lg shadow-sm col-span-3">
-                <BrandBar/>
+            <div className="col-span-3 row-span-3">
+                <BrandBar />
                 <DeviceList/>
-                <Pages/>
+            {/*    <Pages/>*/}
             </div>
         </div>
         // <Container>
