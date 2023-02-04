@@ -4,7 +4,6 @@ import {Context} from "../index";
 
 const BrandBar = observer(() => {
     const {device} = useContext(Context)
-    device.brands.forEach(brand => console.log(brand))
 
     return (
         <div className="mb-6 grid grid-rows-3 grid-flow-col gap-4">
@@ -12,11 +11,11 @@ const BrandBar = observer(() => {
                 <div
                     style={{cursor:'pointer'}}
                     key={brand.id}
-                    className="row-span-3"
+                    className={brand.id === device.selectedBrand.id ? "row-span-3 border-amber-800 bg-blue-900 rounded-lg" : "row-span-3 border-amber-800 bg-blue-900"}
                     onClick={() => device.setSelectedBrand(brand)}
                     // border={brand.id === device.selectedBrand.id ? 'danger' : 'light'}
                 >
-                    {brand.name} temp
+                    {brand.name}
                 </div>
             )}
         </div>

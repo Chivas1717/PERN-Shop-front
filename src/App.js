@@ -11,12 +11,16 @@ const App = observer(() => {
   const {user} = useContext(Context)
   const [loading, setLoading] = useState(true)
 
+  // 1.948847
   useEffect(() => {
     check().then(data => {
+      console.log(data)
+      console.log("HERE")
       user.setUser(true)
       user.setIsAuth(true)
-    }).finally(() => setLoading(false))
-  }, [user])
+    }).catch((error) => console.log("authorization error"))
+        .finally(() => setLoading(false))
+  }, [])
 
   if (loading) {
     return <div>Loading</div>

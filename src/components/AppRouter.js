@@ -8,6 +8,7 @@ import Admin from "../pages/Admin"
 import DevicePage from "../pages/DevicePage";
 import Auth from "../pages/Auth";
 import Shop from "../pages/Shop";
+import Basket from "../pages/Basket";
 const AppRouter = observer(() => {
     const {user} = useContext(Context)
 
@@ -22,12 +23,12 @@ const AppRouter = observer(() => {
             {/*})}*/}
 
             <Route path={ADMIN_ROUTE} element={user.isAuth ? (
-                <DevicePage />
+                <Admin />
             ) : (
                 <Navigate replace to={"/"} />
             )}/>
             <Route path={BASKET_ROUTE} element={user.isAuth ? (
-                <DevicePage />
+                <Basket />
             ) : (
                 <Navigate replace to={"/"} />
             )}/>
@@ -43,7 +44,6 @@ const AppRouter = observer(() => {
             <Route path={DEVICE_ROUTE + '/:id'} element={
                 <DevicePage />
             }/>
-
             <Route path="*" element={SHOP_ROUTE}/>
         </Routes>
     );

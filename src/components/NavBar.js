@@ -19,18 +19,20 @@ const NavBar = observer(() => {
                 <NavLink className="flex items-center text-gray-500 dark:text-white text-2xl" to={SHOP_ROUTE}>PERN SHOP</NavLink>
                 {user.isAuth ?
                     <div className="flex items-center">
-                        <button
+                        {user.role === "Admin" ? <button
                             className="mr-6 text-sm font-medium text-gray-500 dark:text-white"
                             onClick={() => navigate(ADMIN_ROUTE)}
                         >
                             Admin
-                        </button>
+                        </button> : <></>}
                         <button
-                            onClick={() => logOut()}
+                            onClick={() => window.confirm("Confirm logout") ? logOut() : ""}
                             className="text-sm font-medium text-blue-600 dark:text-red-500"
                         >
                             Logout
                         </button>
+                        <div>
+                        </div>
                     </div>
                     :
                     <div className="flex items-center">
