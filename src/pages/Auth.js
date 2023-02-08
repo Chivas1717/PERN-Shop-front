@@ -13,7 +13,8 @@ const Auth = observer(() => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const click = async () => {
+    const click = async (e) => {
+        e.preventDefault()
         try {
             let data;
             if (isLogin) {
